@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+table {
+	border-collapse: collapse;
+	border: 3px solid gray;
+	letter-spacing: 5px;
+	color: gray;
+}
+
+thead, tfoot {
+	background-color: rgb(228, 240, 245);
+}
+
+th, td {
+	border: 1px solid rgb(160, 160, 160);
+	padding: 8px 110px;
+	font-size: 20px;
+}
+
+td:last-of-type {
+	text-align: center;
+}
+
+tbody>tr:nth-of-type(even) {
+	background-color: rgb(237, 238, 242);
+}
+
+tfoot th {
+	text-align: right;
+}
+
+tfoot td {
+	font-weight: bold;
+}
+
+.table-container {
+	margin: 0 auto;
+	width: 50%;
+}
+
+input[type="submit"] {
+	font-size: 30px; /* フォントサイズを大きくする */
+	padding: 10px 20px; /* 上下左右の余白を調整する */
+	background-color: #8080ff; /* ボタンの背景色を設定する */
+	color: white; /* ボタンの文字色を設定する */
+	border: none; /* ボーダーをなくす */
+	border-radius: 10px; /* ボタンの角を丸くする */
+	cursor: pointer; /* カーソルをポインターにする */
+	margin-left: 600px; /* 左の余白 */
+}
+
+input[type="text"] {
+	width: 400px; /* 幅を調整 */
+    height: 60px; /* 高さを調整 */
+    font-size: 20px; /* フォントサイズを調整 */
+}
+
+.buttonContainer {
+	margin: 20px 170px;
+	text-align: right;
+}

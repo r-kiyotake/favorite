@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>好きなもの管理システム</title>
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" href="css/header.css">
+<script>
+	function validateForm() {
+		var title = document.forms["addForm"]["title"].value;
+		var detail = document.forms["addForm"]["detail"].value;
+		if (title == "" | detail == "") {
+			alert("タイトルと詳細を入力してください");
+			return false;
+		}
+	}
+
+	function fadeOutPage() {
+		document.body.style.opacity = 1;
+		var fadeEffect = setInterval(function() {
+			if (!document.body.style.opacity) {
+				document.body.style.opacity = 1;
+			}
+			if (document.body.style.opacity > 0) {
+				document.body.style.opacity -= 0.1;
+			} else {
+				clearInterval(fadeEffect);
+				window.location.href = '/'; // ここで遷移先のURLを指定します
+			}
+		}, 50);
+	}
+</script>
+</head>
+<body>
+	<div class="header">
+		<h1>好きなものを記録するアプリ</h1>
+		<button type="button" onclick="fadeOutPage()">戻る</button>
+	</div>
+	<hr>
+	<form method="post" action="/add" name="addForm"
+		onsubmit="return validateForm()">
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<th scope="col">タイトル</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="text" name="title"
+							placeholder="タイトルを入力してください"></td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th scope="col">詳細</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="text" name="detail"
+							placeholder="詳細を入力してください"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="buttonContainer">
+			<input type="submit" value="登録" />
+			</div>
+	</form>
+</body>
+</html>
+
+
