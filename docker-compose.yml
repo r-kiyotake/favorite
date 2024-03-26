@@ -33,6 +33,9 @@ services:
       - 5432:5432
     networks:
       favorite-dev:
+      
+  volumes:
+    db-store:
 
 networks:
   favorite-dev:
