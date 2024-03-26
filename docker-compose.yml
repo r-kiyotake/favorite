@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+  java:
+    image: openjdk:22
+    container_name: favorites
+    restart: always
+    working_dir: /app
+    tty: true
+    volumes:
+      - ../:/app
+    ports:
+      - 8080:8080
+      - 5050:5050
+    depends_on:
+      - db
+    networks:
+      favorite-dev:
+
+  db:
+    image: postgres:16
+    container_name: favorite_dev_postgres
+    restart: always
+    environment:
+      postgreSQL_ROOT_PASSWORD: root
+      postgreSQL_DATABASE: todo_db
+      postgreSQL_USER: todo_user
+      postgreSQL_PASSWORD: todo_pass
+      TZ: 'Asia/Tokyo'
+    command: postgreSQLd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./ddl:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    networks:
+      favorite-dev:
+
+networks:
+  favorite-dev:
+    name: favorite-dev
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
