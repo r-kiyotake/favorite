@@ -35,7 +35,7 @@ services:
       favorite-dev:
       
 volumes:
-    db-store:
+  db-store:
 
 networks:
   favorite-dev:
