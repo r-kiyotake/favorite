@@ -11,6 +11,7 @@
 		var detailField = document.getElementsByName("detail")[0];
 		titleField.removeAttribute("readonly");
 		detailField.removeAttribute("readonly");
+		document.getElementById('editMessage').style.display = 'block';
 	}
 </script>
 </head>
@@ -50,6 +51,7 @@
 			</div>
 			<div class="buttons">
 			<button type="button" onclick="enableEdit()">編集</button>
+			<p id="editMessage" style="display: none;">編集可能になりました。</p>
 			<input type="submit" value="更新" />
 			</div>
 	</form>
