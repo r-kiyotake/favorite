@@ -1,4 +1,4 @@
-FROM maven:4.0.0-jdk-22 AS builder
+FROM maven:3.8.3-jdk-22 AS builder
 WORKDIR /favoriteList
 COPY ./src ./src
 COPY ./pom.xml .
