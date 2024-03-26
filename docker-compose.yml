@@ -12,7 +12,6 @@ services:
       - ../:/app
     ports:
       - 8080:8080
-      - 5050:5050
     depends_on:
       - db
     networks:
@@ -23,16 +22,16 @@ services:
     container_name: favorite_dev_postgres
     restart: always
     environment:
-      postgreSQL_ROOT_PASSWORD: root
-      postgreSQL_DATABASE: todo_db
-      postgreSQL_USER: todo_user
-      postgreSQL_PASSWORD: todo_pass
-      TZ: 'Asia/Tokyo'
-    command: postgreSQLd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      TZ: Asia/Tokyo
+      POSTGRES_DB: todo_db
+      POSTGRES_USER: todo_user
+      POSTGRES_PASSWORD: todo_pass
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
     volumes:
-      - ./ddl:/docker-entrypoint-initdb.d
+      - db-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d
     ports:
-      - 3306:3306
+      - 5432:5432
     networks:
       favorite-dev:
 
