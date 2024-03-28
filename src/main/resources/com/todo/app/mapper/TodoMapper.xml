@@ -12,13 +12,13 @@
 	<!-- selectIncompleteメソッドに対応するSQL -->
 	<select id="selectIncomplete"
 		resultType="com.todo.app.entity.Todo">
-		select * from favorites where delete_flag = 0 order by id asc ;
+		select * from favorites where delete_flag = false order by id asc ;
 	</select>
 
 	<!-- selectCompleteメソッドに対応するSQL -->
 	<select id="selectComplete"
 		resultType="com.todo.app.entity.Todo">
-		select * from favorites where delete_flag = 1 order by id asc ;
+		select * from favorites where delete_flag = false order by id asc ;
 	</select>
 
 

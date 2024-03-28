@@ -1,5 +1,6 @@
 package com.todo.app.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,23 @@ public class TodoController {
 
 	@RequestMapping(value="/")
 	public String index(Model model) {
-		// List<Todo> list = todoMapper.selectAll();
-
 		List<Todo> list = todoMapper.selectIncomplete();
 		List<Todo> doneList = todoMapper.selectComplete();
-		model.addAttribute("todos",list);
-		model.addAttribute("doneTodos",doneList);
+
+		if(list == null || list.isEmpty()){
+			model.addAttribute("todos", Collections.emptyList());
+			model.addAttribute("errorMessage", "好きなものが見つかりませんでした。");
+		} else {
+			model.addAttribute("todos", list);
+		}
+
+		if(doneList == null || doneList.isEmpty()){
+			model.addAttribute("doneTodos", Collections.emptyList());
+			model.addAttribute("doneErrorMessage","あいえうお。");
+		} else {
+			model.addAttribute("doneTodos", doneList);
+		}
+
 		return "index";
 	}
 
@@ -64,4 +76,5 @@ public class TodoController {
 		model.addAttribute("todo", todo);
 		return "detail";
 	}
+
 }

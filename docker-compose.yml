@@ -14,10 +14,9 @@ services:
       - 8080:8080
     depends_on:
       - db
-    networks:
-      favorite-dev:
 
   db:
+    build: .
     image: postgres:16
     container_name: favorite_dev_postgres
     restart: always
@@ -31,15 +30,6 @@ services:
       - db-store:/var/lib/postgresql/data
     ports:
       - 5432:5432
-    networks:
-      favorite-dev:
       
 volumes:
   db-store:
-
-networks:
-  favorite-dev:
-    name: favorite-dev
-    driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv6: "false"
