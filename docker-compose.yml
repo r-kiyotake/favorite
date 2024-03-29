@@ -27,7 +27,8 @@ services:
       POSTGRES_PASSWORD: todo_pass
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
     volumes:
-      - db-store:/var/lib/postgresql/data
+    # ローカルのpostgres/initディレクトリをコンテナの/docker-entrypointdb.dにマウント
+      - ./postgres/init:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
       
