@@ -7,4 +7,12 @@ CREATE TABLE favorites(
     delete_flag numeric(1) default 0,
     created_at timestamp default CURRENT_TIMESTAMP,
     updated_at timestamp default CURRENT_TIMESTAMP
+);
+
+CREATE TABLE users(
+    id serial,
+    userName varchar(255),
+    password varchar(255),
+    created_at timestamp default CURRENT_TIMESTAMP,
+    updated_at timestamp default CURRENT_TIMESTAMP
 )

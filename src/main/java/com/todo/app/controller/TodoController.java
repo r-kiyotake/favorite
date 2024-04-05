@@ -25,7 +25,7 @@ public class TodoController {
 
 		if(list == null || list.isEmpty()){
 			model.addAttribute("todos", Collections.emptyList());
-			model.addAttribute("errorMessage", "好きなものが見つかりませんでした。");
+			model.addAttribute("errorMessage", "好きなものを登録してください。");
 		} else {
 			model.addAttribute("todos", list);
 		}

@@ -30,6 +30,9 @@ function fadeOutPage() {
 	</div>
 	<hr>
 	<div class="table-container">
+		<div th:if="${errorMessage}">
+			<p th:text="${errorMessage}"></p>
+		</div>
 		<table>
 			<thead>
 				<tr>
