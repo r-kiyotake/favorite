@@ -1,9 +1,9 @@
-version: '3'
+version: '3.8'
 
 services:
 
   java:
-    image: openjdk:22
+    image: openjdk:17
     container_name: favorites
     restart: always
     working_dir: /app
