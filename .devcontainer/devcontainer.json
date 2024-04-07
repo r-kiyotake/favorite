@@ -1,0 +1,29 @@
+{
+    // 名前
+    "name": "develop-in-container",
+
+    // docker-compose.ymlの相対パス
+    "dockerComposeFile": "../docker-compose.yml",
+
+    // composeファイル内のservice名
+    "service": "openjdk",
+
+    // コンテナ内の作業ディレクトリ
+    "workspaceFolder": "/app",
+
+    // bashでの起動を明示
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+
+    // コンテナ内で使用する拡張機能
+    "extensions": [
+        "vscjava.vscode-java-pack",
+        "pivotal.vscode-boot-dev-pack",
+        "vscjava.vscode-lombok",
+        "donjayamanne.githistory"
+    ],
+
+    // コンテナ内での実行ユーザ
+    "remoteUser": "vscode"
+}
